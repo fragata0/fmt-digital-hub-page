@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,14 +15,16 @@ const Navbar = () => {
     <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-sm border-b">
       <div className="container mx-auto flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
-          <a href="#" className="text-2xl font-bold gradient-text">FMT</a>
+          <Link to="/" className="text-2xl font-bold gradient-text">FMT</Link>
         </div>
         
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-6">
-          <a href="#services" className="text-fmt-dark hover:text-fmt-blue transition-colors">Serviços</a>
-          <a href="#about" className="text-fmt-dark hover:text-fmt-blue transition-colors">Quem Somos</a>
-          <a href="#contact" className="text-fmt-dark hover:text-fmt-blue transition-colors">Contato</a>
+          <Link to="/#services" className="text-fmt-dark hover:text-fmt-blue transition-colors">Serviços</Link>
+          <Link to="/#portfolio" className="text-fmt-dark hover:text-fmt-blue transition-colors">Portfólio</Link>
+          <Link to="/blog" className="text-fmt-dark hover:text-fmt-blue transition-colors">Blog</Link>
+          <Link to="/#about" className="text-fmt-dark hover:text-fmt-blue transition-colors">Quem Somos</Link>
+          <Link to="/#contact" className="text-fmt-dark hover:text-fmt-blue transition-colors">Contato</Link>
           <Button className="bg-gradient-to-r from-fmt-blue to-fmt-purple hover:opacity-90 transition-opacity">
             Solicitar Orçamento
           </Button>
@@ -41,27 +44,41 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden absolute top-16 left-0 right-0 bg-white border-b shadow-lg animate-fade-in">
           <nav className="container mx-auto py-4 flex flex-col gap-4">
-            <a 
-              href="#services" 
+            <Link 
+              to="/#services" 
               className="text-fmt-dark hover:text-fmt-blue transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Serviços
-            </a>
-            <a 
-              href="#about" 
+            </Link>
+            <Link 
+              to="/#portfolio" 
+              className="text-fmt-dark hover:text-fmt-blue transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Portfólio
+            </Link>
+            <Link 
+              to="/blog" 
+              className="text-fmt-dark hover:text-fmt-blue transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Blog
+            </Link>
+            <Link 
+              to="/#about" 
               className="text-fmt-dark hover:text-fmt-blue transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Quem Somos
-            </a>
-            <a 
-              href="#contact" 
+            </Link>
+            <Link 
+              to="/#contact" 
               className="text-fmt-dark hover:text-fmt-blue transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Contato
-            </a>
+            </Link>
             <Button 
               className="bg-gradient-to-r from-fmt-blue to-fmt-purple hover:opacity-90 transition-opacity w-full"
               onClick={() => setIsMenuOpen(false)}
